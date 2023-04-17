@@ -48,6 +48,7 @@ func (t *testSuite) TestCreate() {
 		Categories: nil,
 		Owner:      owner.ID,
 		Friends:    nil,
+		Rescuer:    []int{owner.ID},
 	})
 	t.Require().NoError(err)
 	t.Require().Equal(ogent.NewPetCreate(t.client.Pet.Query().WithOwner().FirstX(context.Background())), got)
